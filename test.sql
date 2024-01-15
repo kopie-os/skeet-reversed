@@ -2,10 +2,10 @@
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Хо�?т: localhost
--- Врем�? �?оздани�?: Июл 17 2018 г., 03:51
--- Вер�?и�? �?ервера: 5.7.22-0ubuntu0.16.04.1
--- Вер�?и�? PHP: 7.2.7-1+ubuntu16.04.1+deb.sury.org+1
+-- Хост: localhost
+-- Время создания: Июл 17 2018 г., 03:51
+-- Версия сервера: 5.7.22-0ubuntu0.16.04.1
+-- Версия PHP: 7.2.7-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 
 --
 -- База данных: `test`
--- 
+--
 
 -- --------------------------------------------------------
 
@@ -396,7 +396,7 @@ INSERT INTO `online` (`user_id`, `ident`, `logged`, `idle`, `last_post`, `last_s
 -- --------------------------------------------------------
 
 --
--- Структура таблицы ``
+-- Структура таблицы `payments`
 --
 
 CREATE TABLE `payments` (
@@ -565,7 +565,7 @@ INSERT INTO `posts` (`id`, `poster`, `poster_id`, `poster_ip`, `poster_email`, `
 (32, 'admin', 2, '176.212.26.71', NULL, 'Features explain\n\n[b]Accounts checkboxes[/b] - enable or disable account\n[b]Win or Lose checkboxes[/b] - lobby for account\n[b]Auto accept[/b] - press accept if lobby find\n[b]Auto start[/b] - press on start button every 10 seconds (type in console "unbind mouse1" on leaders)\n[b]Members[/b] - checking for members count not full lobby then disable panel\n[b]Wingman[/b] - [b]Members[/b] but for wingman\n[b]Byte lobbies[/b] - if value is "off" close search else if "on" press accept on [url=https://afkboost.space/forums/viewtopic.php?id=23]selected accounts[/url] except leaders\n[b]Link parse[/b] - update "Win" textbox when lobby was created by leader\n[b]Auto join[/b] - join on selected accounts and lobbies after lobby link was updated\n[b]Win[/b] - Win lobby textbox with join link (format: steam://joinlobby/730/xxx)\n[b]Lose[/b] - Lose lobby textbox with join link (format: steam://joinlobby/730/xxx)\n[b]Join win or Join lose[/b] - Single join in selected lobby\n\n[b]Lobby links api:[/b]\n[quote][color=#FF0000][b]POST REQUEST:[/b][/color]\n[color=#00BFFF]Url:[/color] [url]https://api.afkboost.space/lobby/get?[/url]\n[color=#00BFFF]Parameters:[/color] \n[quote]\n[b]token[/b]=[em]xxx[/em] - your token in [b][color=#e61515]Premium[/color][/b] tab[/quote]\nor[quote]\n[b]username[/b]=[em]admin[/em] - your username\n[b]password[/b]=[em]xxx[/em] - your password\n[/quote]\n[quote]\n[b]char[/b]=[em],[/em] - optional parameter, without it char for split will be [b]<br>[/b] or [b]new line[/b]\n[/quote]\n[color=#00BFFF][b]RESPONSE:[/b][/color]\n[quote]\n[em]109775245053844894[/em][b],[/b][em]109775245053845602[/em]\n[/quote]\nFirst value is win lobby link, second is lose\n\n[/quote]', 0, 1531037004, NULL, NULL, 29, NULL),
 (33, 'admin', 2, '176.212.26.71', NULL, '[b]Changes[/b]\n\nAdded links api\n[url=https://afkboost.space/forums/viewtopic.php?pid=32]More info[/url]\nFixed lobby links for old csgo version', 0, 1531037143, NULL, NULL, 30, NULL),
 (34, 'admin', 2, '5.167.15.231', NULL, '[b]Changes[/b]\n\nAdded abandon boost (I made it for myself). If you want use this function need have 2 pc and 2 accounts on our forum (pm me if you want).', 0, 1531228556, NULL, NULL, 31, NULL),
-(35, 'mulfix', 4, '', NULL, 'p', 0, 1531298894, NULL, NULL, 31, NULL);
+(35, 'mulfix', 4, '91.199.93.129', NULL, 'p', 0, 1531298894, NULL, NULL, 31, NULL);
 
 -- --------------------------------------------------------
 
@@ -1877,7 +1877,7 @@ INSERT INTO `search_words` (`id`, `word`) VALUES
 (103, 'unconfirmed'),
 (104, 'pending'),
 (105, 'new'),
-(106, 'i-kidnap-autistic-kids'),
+(106, 'transactions'),
 (107, 'added'),
 (108, 'minutes'),
 (109, 'average'),
@@ -2862,73 +2862,73 @@ INSERT INTO `versions` (`id`, `name`, `version`) VALUES
 (2, 'csgo', '0.0');
 
 --
--- Индек�?ы �?охранённых таблиц
+-- Индексы сохранённых таблиц
 --
 
 --
--- Индек�?ы таблицы `ajax_chat_messages`
+-- Индексы таблицы `ajax_chat_messages`
 --
 ALTER TABLE `ajax_chat_messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индек�?ы таблицы `bans`
+-- Индексы таблицы `bans`
 --
 ALTER TABLE `bans`
   ADD PRIMARY KEY (`id`),
   ADD KEY `bans_username_idx` (`username`(25));
 
 --
--- Индек�?ы таблицы `categories`
+-- Индексы таблицы `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индек�?ы таблицы `censoring`
+-- Индексы таблицы `censoring`
 --
 ALTER TABLE `censoring`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индек�?ы таблицы `codes`
+-- Индексы таблицы `codes`
 --
 ALTER TABLE `codes`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `code` (`code`);
 
 --
--- Индек�?ы таблицы `config`
+-- Индексы таблицы `config`
 --
 ALTER TABLE `config`
   ADD PRIMARY KEY (`conf_name`);
 
 --
--- Индек�?ы таблицы `forums`
+-- Индексы таблицы `forums`
 --
 ALTER TABLE `forums`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индек�?ы таблицы `forum_perms`
+-- Индексы таблицы `forum_perms`
 --
 ALTER TABLE `forum_perms`
   ADD PRIMARY KEY (`group_id`,`forum_id`);
 
 --
--- Индек�?ы таблицы `forum_subscriptions`
+-- Индексы таблицы `forum_subscriptions`
 --
 ALTER TABLE `forum_subscriptions`
   ADD PRIMARY KEY (`user_id`,`forum_id`);
 
 --
--- Индек�?ы таблицы `groups`
+-- Индексы таблицы `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`g_id`);
 
 --
--- Индек�?ы таблицы `online`
+-- Индексы таблицы `online`
 --
 ALTER TABLE `online`
   ADD UNIQUE KEY `online_user_id_ident_idx` (`user_id`,`ident`(25)),
@@ -2936,20 +2936,20 @@ ALTER TABLE `online`
   ADD KEY `online_logged_idx` (`logged`);
 
 --
--- Индек�?ы таблицы `payments`
+-- Индексы таблицы `payments`
 --
 ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индек�?ы таблицы `pms_new_block`
+-- Индексы таблицы `pms_new_block`
 --
 ALTER TABLE `pms_new_block`
   ADD KEY `pms_new_block_bl_id_idx` (`bl_id`),
   ADD KEY `pms_new_block_bl_user_id_idx` (`bl_user_id`);
 
 --
--- Индек�?ы таблицы `pms_new_posts`
+-- Индексы таблицы `pms_new_posts`
 --
 ALTER TABLE `pms_new_posts`
   ADD PRIMARY KEY (`id`),
@@ -2957,7 +2957,7 @@ ALTER TABLE `pms_new_posts`
   ADD KEY `pms_new_posts_multi_idx` (`poster_id`,`topic_id`);
 
 --
--- Индек�?ы таблицы `pms_new_topics`
+-- Индексы таблицы `pms_new_topics`
 --
 ALTER TABLE `pms_new_topics`
   ADD PRIMARY KEY (`id`),
@@ -2965,19 +2965,19 @@ ALTER TABLE `pms_new_topics`
   ADD KEY `pms_new_topics_multi_idx_to` (`to_id`,`topic_to`);
 
 --
--- Индек�?ы таблицы `poll`
+-- Индексы таблицы `poll`
 --
 ALTER TABLE `poll`
   ADD PRIMARY KEY (`tid`,`question`,`field`);
 
 --
--- Индек�?ы таблицы `poll_voted`
+-- Индексы таблицы `poll_voted`
 --
 ALTER TABLE `poll_voted`
   ADD PRIMARY KEY (`tid`,`uid`);
 
 --
--- Индек�?ы таблицы `posts`
+-- Индексы таблицы `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
@@ -2985,35 +2985,35 @@ ALTER TABLE `posts`
   ADD KEY `posts_multi_idx` (`poster_id`,`topic_id`);
 
 --
--- Индек�?ы таблицы `reports`
+-- Индексы таблицы `reports`
 --
 ALTER TABLE `reports`
   ADD PRIMARY KEY (`id`),
   ADD KEY `reports_zapped_idx` (`zapped`);
 
 --
--- Индек�?ы таблицы `search_cache`
+-- Индексы таблицы `search_cache`
 --
 ALTER TABLE `search_cache`
   ADD PRIMARY KEY (`id`),
   ADD KEY `search_cache_ident_idx` (`ident`(8));
 
 --
--- Индек�?ы таблицы `search_matches`
+-- Индексы таблицы `search_matches`
 --
 ALTER TABLE `search_matches`
   ADD KEY `search_matches_word_id_idx` (`word_id`),
   ADD KEY `search_matches_post_id_idx` (`post_id`);
 
 --
--- Индек�?ы таблицы `search_words`
+-- Индексы таблицы `search_words`
 --
 ALTER TABLE `search_words`
   ADD PRIMARY KEY (`word`),
   ADD KEY `search_words_id_idx` (`id`);
 
 --
--- Индек�?ы таблицы `topics`
+-- Индексы таблицы `topics`
 --
 ALTER TABLE `topics`
   ADD PRIMARY KEY (`id`),
@@ -3023,19 +3023,19 @@ ALTER TABLE `topics`
   ADD KEY `topics_first_post_id_idx` (`first_post_id`);
 
 --
--- Индек�?ы таблицы `topic_subscriptions`
+-- Индексы таблицы `topic_subscriptions`
 --
 ALTER TABLE `topic_subscriptions`
   ADD PRIMARY KEY (`user_id`,`topic_id`);
 
 --
--- Индек�?ы таблицы `updates`
+-- Индексы таблицы `updates`
 --
 ALTER TABLE `updates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индек�?ы таблицы `users`
+-- Индексы таблицы `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -3043,97 +3043,97 @@ ALTER TABLE `users`
   ADD KEY `users_registered_idx` (`registered`);
 
 --
--- Индек�?ы таблицы `versions`
+-- Индексы таблицы `versions`
 --
 ALTER TABLE `versions`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT дл�? �?охранённых таблиц
+-- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT дл�? таблицы `ajax_chat_messages`
+-- AUTO_INCREMENT для таблицы `ajax_chat_messages`
 --
 ALTER TABLE `ajax_chat_messages`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT дл�? таблицы `bans`
+-- AUTO_INCREMENT для таблицы `bans`
 --
 ALTER TABLE `bans`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT дл�? таблицы `categories`
+-- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT дл�? таблицы `censoring`
+-- AUTO_INCREMENT для таблицы `censoring`
 --
 ALTER TABLE `censoring`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT дл�? таблицы `codes`
+-- AUTO_INCREMENT для таблицы `codes`
 --
 ALTER TABLE `codes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT дл�? таблицы `forums`
+-- AUTO_INCREMENT для таблицы `forums`
 --
 ALTER TABLE `forums`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT дл�? таблицы `groups`
+-- AUTO_INCREMENT для таблицы `groups`
 --
 ALTER TABLE `groups`
   MODIFY `g_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT дл�? таблицы `payments`
+-- AUTO_INCREMENT для таблицы `payments`
 --
 ALTER TABLE `payments`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT дл�? таблицы `pms_new_posts`
+-- AUTO_INCREMENT для таблицы `pms_new_posts`
 --
 ALTER TABLE `pms_new_posts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT дл�? таблицы `pms_new_topics`
+-- AUTO_INCREMENT для таблицы `pms_new_topics`
 --
 ALTER TABLE `pms_new_topics`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT дл�? таблицы `posts`
+-- AUTO_INCREMENT для таблицы `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
--- AUTO_INCREMENT дл�? таблицы `reports`
+-- AUTO_INCREMENT для таблицы `reports`
 --
 ALTER TABLE `reports`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT дл�? таблицы `search_words`
+-- AUTO_INCREMENT для таблицы `search_words`
 --
 ALTER TABLE `search_words`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=895;
 --
--- AUTO_INCREMENT дл�? таблицы `topics`
+-- AUTO_INCREMENT для таблицы `topics`
 --
 ALTER TABLE `topics`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
--- AUTO_INCREMENT дл�? таблицы `updates`
+-- AUTO_INCREMENT для таблицы `updates`
 --
 ALTER TABLE `updates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT дл�? таблицы `users`
+-- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT дл�? таблицы `versions`
+-- AUTO_INCREMENT для таблицы `versions`
 --
 ALTER TABLE `versions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
